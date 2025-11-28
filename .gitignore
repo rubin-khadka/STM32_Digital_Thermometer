@@ -1,0 +1,20 @@
+# STM32 Project - Git Ignore
+
+# MDK-ARM Git ignore
+MDK-ARM/DebugConfig/
+MDK-ARM/STM32_Digital_Thermometer/
+MDK-ARM/RTE/
+MDK-ARM/*.scvd
+MDK-ARM/*.uvguix.*
+
+# STM32CubeIDE
+/.mxproject
+/Project Backups/ 
+
+# STM32CubeMX generated
+/Drivers/CMSIS/
+/Drivers/STM32F1xx_HAL_Driver/
+/Middlewares/
+
+# remove user files created by proteus
+*.RUBIN.*
