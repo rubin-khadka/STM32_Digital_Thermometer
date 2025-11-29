@@ -105,8 +105,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-		// Just display 24.5°C continuously
+			// Just display 24.5°C continuously
 		if (temp_adc_is_ready())
 		{
 			float temperature = temp_adc_read_celsius();
@@ -116,6 +115,7 @@ int main(void)
 			// Start Next conversion
 			temp_adc_start_conversion();
 		}
+    /* USER CODE END WHILE */
     
     /* USER CODE BEGIN 3 */
   }
