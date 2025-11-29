@@ -64,8 +64,9 @@ uint8_t temp_adc_is_ready(void)
 
 float temp_adc_read_celsius(void)
 {
-    float voltage = (adc_raw_value * VREF) / ADC_RESOLUTION;
-		float temperature = (voltage - 1.65f) * LM35_SCALE_FACTOR;
+	float voltage = (adc_raw_value * VREF) / ADC_RESOLUTION;
+	float temperature = (voltage - 1.65f) * LM35_SCALE_FACTOR;
+	temperature = (temperature - 0.1f) * 0.9756f; // Reduce gain by 2.5% to compensate for the offset
     return temperature;
 }
 
