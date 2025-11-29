@@ -51,17 +51,17 @@ void Temperature_To_Digit(float temperature, DisplayDigits_t *digits)
 	int ones_digit = (temp_x10 / 10) % 10;    
 	int tenths_digit = temp_x10 % 10;
 	
-	if (digits->digit1 == DIGIT_BLANK)
-	{
-		if (tens_digit == 0)
-		{
-			digits->digit2 = DIGIT_BLANK;
-		} else
-		{
-			digits->digit2 = tens_digit;
-		}
-	}
-	
+//	if (digits->digit1 == DIGIT_BLANK)
+//	{
+//		if (tens_digit == 0)
+//		{
+//			digits->digit2 = DIGIT_BLANK;
+//		} else
+//		{
+//			digits->digit2 = tens_digit;
+//		}
+//	}
+	digits->digit2 = tens_digit;
 	digits->digit3 = ones_digit;
 	digits->digit4 = tenths_digit;
 }
