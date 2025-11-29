@@ -1,3 +1,9 @@
+/**
+  * @file    spi.c
+  * @brief   SPI module - Register level implementation
+  * @author  Rubin Khadka
+  */
+	
 #include "spi.h"
 
 void SPI1_init(void)

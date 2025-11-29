@@ -1,4 +1,9 @@
-
+/**
+  * @file    seven_segment.h
+  * @brief   Seven Segment 4 Digit Cathode module for STM32F103
+  * @author  Rubin Khadka
+  */
+	
 #ifndef SEVEN_SEGMENT_H
 #define SEVEN_SEGMENT_H
 

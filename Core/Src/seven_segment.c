@@ -1,4 +1,9 @@
-
+/**
+  * @file    seven_segment.c
+  * @brief   Seven Segment 4 digit Cathode module
+  * @author  Rubin Khadka
+  */
+	
 #include "seven_segment.h"
 
 const uint8_t digit_patterns[13] = 

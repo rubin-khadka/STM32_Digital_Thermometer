@@ -10,6 +10,7 @@
       <TargetName>STM32_Digital_Thermometer</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -496,6 +497,51 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>SPI</GroupName>
+          <Files>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\spi.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Seven_Segment</GroupName>
+          <Files>
+            <File>
+              <FileName>seven_segment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\seven_segment.h</FilePath>
+            </File>
+            <File>
+              <FileName>seven_segment.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\seven_segment.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ADC</GroupName>
+          <Files>
+            <File>
+              <FileName>temp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\temp_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>temp_adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\temp_adc.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -514,5 +560,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>STM32_Digital_Thermometer</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

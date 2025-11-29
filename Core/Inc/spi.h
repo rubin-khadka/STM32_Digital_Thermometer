@@ -1,3 +1,8 @@
+/**
+  * @file    spi.h
+  * @brief   SPI module for STM32F103
+  * @author  Rubin Khadka
+  */
 
 #ifndef SPI_H
 #define SPI_H
