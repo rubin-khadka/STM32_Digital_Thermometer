@@ -1,7 +1,7 @@
 # STM32F103C8 Temperature Display with 74HC595 & 7-Segment Display
 
 ## Project Overview
-A digital thermometer using STM32F103C8 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement with high accuracy and fast display response.
+A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement.
 
 ### Hardware Components
 - MCU: STM32F103C8T6 (Blue Pill)
@@ -27,7 +27,6 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 - Core Blue Pill circuits: Power supply, 8MHz and RTC clock, reset circuit, decoupling and BOOT circuit
 - Display driver: Two daisy-chained 74HC595 shift registers controlling the 4-digit seven segment display
 - Temperature sensing: LM35 sensor with voltage divider for negative temperature measurement
-- SPI communication: Direct MCU to shift register interface for efficient display control
 
 ## Video Demonstration
 
