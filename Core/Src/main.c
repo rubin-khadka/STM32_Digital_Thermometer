@@ -111,8 +111,6 @@ int main(void)
 		{
 			float temperature = temp_adc_read_celsius();
 			
-			// Ensure 1 decimal point precision
-			//temperature = (float)((int)(temperature * 10.0f + 0.5f)) / 10.0f;
 			Temperature_To_Digit(temperature, &display_digits);
 			Update_Display(&display_digits);
 			// Start Next conversion
