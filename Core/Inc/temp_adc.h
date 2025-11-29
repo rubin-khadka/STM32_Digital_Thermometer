@@ -20,13 +20,8 @@ extern "C" {
 
 // Temperature calculation
 #define VREF    								3.3f 		// 3.3V reference in mV
-#define ADC_RESOLUTION      		4095.0f // 12-bit ADC
+#define ADC_RESOLUTION      		4096.0f // 12-bit ADC
 #define LM35_SCALE_FACTOR     	100.0f 	// LM35: 10mV/°C = 0.01V/°C × 100
-
-// Integer-based constants
-#define VREF_MV 3300        // 3.3V in millivolts
-#define ADC_RESOLUTION_INT 4095 // 12-bit ADC
-#define VIRTUAL_GROUND_MV 1650  // 1.65V in millivolts
 
 /* Global Variables */
 extern volatile uint32_t adc_raw_value;
