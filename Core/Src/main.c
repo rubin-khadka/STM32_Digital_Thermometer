@@ -97,15 +97,17 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	SPI1_init();
 	temp_adc_init();
-	DisplayDigits_t display_digits;
-	temp_adc_start_conversion();
+	
+	DisplayDigits_t display_digits; // Initialise Digital Display structure
+	
+	temp_adc_start_conversion(); // Start Temperature Converison 
   /* USER CODE END 2 */
 	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-			// Just display 24.5°C continuously
+		// Read Temperature when conversion is done
 		if (temp_adc_is_ready())
 		{
 			float temperature = temp_adc_read_celsius();
@@ -115,6 +117,7 @@ int main(void)
 			// Start Next conversion
 			temp_adc_start_conversion();
 		}
+		
     /* USER CODE END WHILE */
     
     /* USER CODE BEGIN 3 */
