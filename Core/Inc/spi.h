@@ -1,4 +1,4 @@
-	
+
 #ifndef SPI_H
 #define SPI_H
 
@@ -10,21 +10,12 @@ extern "C" {
 #include "main.h"
 
 /* Macros */
-#define Latch(x) (x==1 ? (HAL_GPIO_WritePin(SPI_SS, SPI_SS_Pin, GPIO_PIN_SET)) : \
-												 (HAL_GPIO_WritePin(SPI_SS, SPI_SS_Pin, GPIO_PIN_RESET)))
+#define LATCH(x) (x==1 ? (HAL_GPIO_WritePin(SPI_SS_GPIO_Port, SPI_SS_Pin, GPIO_PIN_SET)):\
+												 (HAL_GPIO_WritePin(SPI_SS_GPIO_Port, SPI_SS_Pin, GPIO_PIN_RESET)))
 
-// Usage
-/* 
-	LATCH(1);	Set latch high
-	LATCH(0); Set latch low  
-	*/
-
-// Pulse latch macro
-#define LATCH_PULSE() do { \
-    LATCH(1); \
-    for(volatile int i = 0; i < 10; i++); \
-    LATCH(0); \
-} while(0)
+/* Function Prototypes */
+void SPI1_init(void);
+void SPI1_Transmit16(uint16_t data);
 
 #ifdef __cplusplus
 }
