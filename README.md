@@ -30,6 +30,10 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 
 ## Video Demonstration
 
+
+https://github.com/user-attachments/assets/aaacc959-ffa7-4ffb-9543-2609d38a994c
+
+
 ## Quick Start
 ### Prerequisites
 ### Setup
