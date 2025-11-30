@@ -24,7 +24,7 @@ Demonstration of the digital thermometer:
 - Starts at 1.0°C showing basic temperature display functionality
 - Both positive and negative temperature readings
 - Voltage divider circuit for negative temperature measurement
-- Measurement accuracy within ±0.1°C tolerance
+- Measurement accuracy within ±0.1°C tolerance 
 
 ## Project Schematic Diagram
 <img width="1118" height="593" alt="STM32 Digital_Thermometer_Schematic_complete" src="https://github.com/user-attachments/assets/b7086b7e-cc3f-4433-afcc-69bc082da428" />
@@ -42,9 +42,9 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 
 | STM32 Pin | Function | Connected To | Purpose |
 |-----------|----------|--------------|---------|
-| `PA5` | `SPI1_SCK` | 74HC595 SH_CP (Pin 11) | Shift Clock - data synchronization |
-| `PA7` | `SPI1_MOSI` | 74HC595 DS (Pin 14) | Serial Data - segment/digit data |
-| `PA4` | `GPIO Output` | 74HC595 ST_CP (Pin 12) | Latch Control - update outputs |
+| `PA5` | `SPI1_SCK` | Both 74HC595 SH_CP (Pin 11) | Shift Clock - data synchronization |
+| `PA7` | `SPI1_MOSI` | First 74HC595 DS (Pin 14) | Serial Data - segment/digit data |
+| `PA4` | `GPIO Output` | Both 74HC595 ST_CP (Pin 12) | Latch Control - update outputs |
 | `PA0` | `ADC1_IN0` | LM35 Output | Temperature sensor reading |
 
 #### First 74HC595 (Segment Control)
@@ -58,7 +58,7 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 | `Q5` | Segment F | Display segment F |
 | `Q6` | Segment G | Display segment G |
 | `Q7` | Decimal Point | Display decimal point |
-| `SER OUT` | Second 74HC595 SER IN | Daisy-chain connection |
+| `Q7'/QH'` | Second 74HC595 DS (Pin 14) | Daisy-chain connection |
 
 #### Second 74HC595 (Digit Control)
 | 74HC595 Pin | Connection | Purpose |
@@ -76,8 +76,50 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 | `R2 (10kΩ)` | R1 → R2 → GND | Sets midpoint voltage at 1.65V |
 | `LM35 GND` | R1-R2 junction → LM35 GND | Shifts LM35 ground to 1.65V for negative readings |
 
-
-
 ## Quick Start
+
 ### Prerequisites
+- STM32F103C8T6 (Blue Pill) Microcontroller
+- Keil MDK-ARM 5 with STM32 support
+- STM32CubeMX for initial project setup
+- Proteus 8 to run the simulation file
+- ST-Link 
+
 ### Setup
+
+1. Clone this repository
+```bash
+git clone https://github.com/rubin-khadka/STM32_Digital_Thermometer.git
+```
+2. Open **CubeMX** file `STM32_Digital_Thermometer.ioc` in STM32CubeMX
+
+3. `Generate code` in CubeMX - this will open the project in Keil 5
+
+4. Build the project and test it with:
+    - Actual hardware, OR
+    - Proteus 8 simulation `Proteus_Simulation.pdsprj`
+
+#### Alternative Setup (Without Keil)
+If you don't have Keil MDK:
+1. In **CubeMX** file `STM32_Digital_Thermometer.ioc`, configure the project for STM32Cube IDE
+2. Copy files from `Core/Src` and `Core/Inc` folders
+3. Copy code from `main.c` file
+4. Build in STM32Cube IDE and test
+
+The project should work with either development environment.
+
+## Resources
+- [STM32F103 Datasheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf)
+- [74HC595 Datasheet](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=sn74hc595.pdf)
+- [LM35 Datasheet](https://www.ti.com/lit/ds/symlink/lm35.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=lm35.pdf)
+- [EasyEDA Website](https://easyeda.com/)
+
+## Project Status
+**Status**: Complete  
+**Version**: v1.0  
+**Last Updated**: December 2024  
+
+## Contact
+**Rubin Khadka Chhetri**
+- Email: rubin.robotic@gmail.com
+- GitHub: [@rubin-khadka](https://github.com/rubin-khadka)
