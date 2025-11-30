@@ -108,14 +108,14 @@ int main(void)
   while (1)
   {
 		// Read Temperature when conversion is done
-		if (temp_adc_is_ready())
+		if (temp_adc_is_ready()) // If conversion is complete
 		{
-			float temperature = temp_adc_read_celsius();
+			float temperature = temp_adc_read_celsius(); // Get Temperature Value
+
+			Temperature_To_Digit(temperature, &display_digits); // Convert to format for 7Segment
+			Update_Display(&display_digits); // Display on 7Segment
 			
-			Temperature_To_Digit(temperature, &display_digits);
-			Update_Display(&display_digits);
-			// Start Next conversion
-			temp_adc_start_conversion();
+			temp_adc_start_conversion();  // Start Next conversion
 		}
 		
     /* USER CODE END WHILE */

@@ -1,7 +1,9 @@
 # STM32F103C8 Temperature Display with 74HC595 & 7-Segment Display
 
 ## Project Overview
-A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement.
+A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement. 
+
+***Note***: EEPROM and memory card module implementation planned for future version.
 
 ### Hardware Components
 - MCU: STM32F103C8T6 (Blue Pill)
@@ -14,9 +16,15 @@ A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature fro
 - Firmware developed in Keil MDK-ARM 5
 - Circuit simulation and validation in Proteus 8
 
-### Future Enhancements
-- EEPROM integration for storing temperature calibration data and settings
-- Memory card module for data logging and long-term temperature tracking
+## Video Demonstrations
+
+https://github.com/user-attachments/assets/aaacc959-ffa7-4ffb-9543-2609d38a994c
+
+Demonstration of the digital thermometer:
+- Starts at 1.0°C showing basic temperature display functionality
+- Both positive and negative temperature readings
+- Voltage divider circuit for negative temperature measurement
+- Measurement accuracy within ±0.1°C tolerance
 
 ## Project Schematic Diagram
 <img width="1118" height="593" alt="STM32 Digital_Thermometer_Schematic_complete" src="https://github.com/user-attachments/assets/b7086b7e-cc3f-4433-afcc-69bc082da428" />
@@ -28,10 +36,46 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 - Display driver: Two daisy-chained 74HC595 shift registers controlling the 4-digit seven segment display
 - Temperature sensing: LM35 sensor with voltage divider for negative temperature measurement
 
-## Video Demonstration
+## Pinout Documentation
 
+#### STM32F103C8T6 Pin Configuration
 
-https://github.com/user-attachments/assets/aaacc959-ffa7-4ffb-9543-2609d38a994c
+| STM32 Pin | Function | Connected To | Purpose |
+|-----------|----------|--------------|---------|
+| `PA5` | `SPI1_SCK` | 74HC595 SH_CP (Pin 11) | Shift Clock - data synchronization |
+| `PA7` | `SPI1_MOSI` | 74HC595 DS (Pin 14) | Serial Data - segment/digit data |
+| `PA4` | `GPIO Output` | 74HC595 ST_CP (Pin 12) | Latch Control - update outputs |
+| `PA0` | `ADC1_IN0` | LM35 Output | Temperature sensor reading |
+
+#### First 74HC595 (Segment Control)
+| 74HC595 Pin | Connection | Purpose |
+|-------------|------------|---------|
+| `Q0` | Segment A | Display segment A |
+| `Q1` | Segment B | Display segment B |
+| `Q2` | Segment C | Display segment C |
+| `Q3` | Segment D | Display segment D |
+| `Q4` | Segment E | Display segment E |
+| `Q5` | Segment F | Display segment F |
+| `Q6` | Segment G | Display segment G |
+| `Q7` | Decimal Point | Display decimal point |
+| `SER OUT` | Second 74HC595 SER IN | Daisy-chain connection |
+
+#### Second 74HC595 (Digit Control)
+| 74HC595 Pin | Connection | Purpose |
+|-------------|------------|---------|
+| `Q0` | Digit 1 Cathode | Activate Digit 1 |
+| `Q1` | Digit 2 Cathode | Activate Digit 2 |
+| `Q2` | Digit 3 Cathode | Activate Digit 3 |
+| `Q3` | Digit 4 Cathode | Activate Digit 4 |
+| `Q4-Q7` | Not Connected | Unused outputs |
+
+#### Voltage Divider Circuit (Negative Temperature Measurement)
+| Component | Connection Points | Purpose |
+|-----------|-------------------|---------|
+| `R1 (10kΩ)` | 3.3V → R1 → R2 | Creates voltage divider for 1.65V reference |
+| `R2 (10kΩ)` | R1 → R2 → GND | Sets midpoint voltage at 1.65V |
+| `LM35 GND` | R1-R2 junction → LM35 GND | Shifts LM35 ground to 1.65V for negative readings |
+
 
 
 ## Quick Start

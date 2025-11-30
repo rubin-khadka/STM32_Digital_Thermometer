@@ -63,28 +63,28 @@ void Temperature_To_Digit(float temperature, DisplayDigits_t *digits)
 
 void Update_Display(const DisplayDigits_t *digits)
 {
-	// Display Digit 1 (Tens place or minus sign)
+	// Display Digit 1
 	uint16_t data1 = DIGIT_1 | digit_patterns[digits->digit1];
 	LATCH(0);
 	SPI1_Transmit16(data1);
 	LATCH(1);
 	HAL_Delay(3);
 	
-	// Display Digit 2 (Ones place WITH decimal point)
+	// Display Digit 2 
 	uint16_t data2 = DIGIT_2 | digit_patterns[digits->digit2];
 	LATCH(0);
 	SPI1_Transmit16(data2);
 	LATCH(1);
 	HAL_Delay(3);
 	
-	// Display Digit 3 (Tenths place)
+	// Display Digit 3 with decimal point
 	uint16_t data3 = DIGIT_3 | digit_patterns_with_dp[digits->digit3];
 	LATCH(0);
 	SPI1_Transmit16(data3);
 	LATCH(1);
 	HAL_Delay(3);
 	
-	// Display Digit 4 (Blank - unused)
+	// Display Digit 4
 	uint16_t data4 = DIGIT_4 | digit_patterns[digits->digit4];
 	LATCH(0);
 	SPI1_Transmit16(data4);
