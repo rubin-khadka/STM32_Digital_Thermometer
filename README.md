@@ -12,9 +12,23 @@ A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature fro
 - Shift Registers: 2x 74HC595 (daisy-chained)
 - Communication: SPI1 for data transfer and GPIO for latch control
 
+### System Configuration
+- System Clock: 64 MHz (HSI PLL)
+- SPI1:
+    - Data Size: 16-bit mode
+    - Baud Rate: 16 MBits/s
+    - Mode: Master, Full-Duplex
+    - Clock Polarity: Low, Phase: 1 Edge
+    - First Bit: MSB
+- ADC1:
+    - ADC Clock: 10.667 MHz
+    - Resolution: 12-bit
+    - Sampling Time: 28.5 cycles
+    - Channel: PA0 (ADC1_IN0)
+
 ### Development & Testing
-- Firmware developed in Keil MDK-ARM 5
-- Circuit simulation and validation in Proteus 8
+- Firmware developed in `Keil MDK-ARM 5`
+- Circuit simulation and validation in `Proteus 8`
 
 ## Video Demonstrations
 
@@ -80,10 +94,11 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 
 ### Prerequisites
 - STM32F103C8T6 (Blue Pill) Microcontroller
+- STM32CubeF1 Firmware Package (includes HAL drivers)
 - Keil MDK-ARM 5 with STM32 support
 - STM32CubeMX for initial project setup
 - Proteus 8 to run the simulation file
-- ST-Link 
+- ST-Link Programmer/Debugger
 
 ### Setup
 
