@@ -13,7 +13,8 @@ A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature fro
 - Communication: SPI1 for data transfer and GPIO for latch control
 
 ### System Configuration
-- System Clock: 64 MHz (HSI PLL)
+- System Clock: 64 MHz (HSI PLL)<br>
+    [STM32 Clock Configuration](https://github.com/rubin-khadka/STM32_Digital_Thermometer/tree/main/Media)
 - SPI1:
     - Data Size: 16-bit mode
     - Baud Rate: 16 MBits/s
