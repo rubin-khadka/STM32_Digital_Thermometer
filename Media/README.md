@@ -1,3 +1,8 @@
+## STM32 Clock Cinfiguration
+<img width="1382" height="690" alt="Clock_configuration" src="https://github.com/user-attachments/assets/426ec3e2-31c1-4817-a3d0-17d5d44cdfc3" />
+
+## STM32 Pin COnfiguration
+<img width="652" height="647" alt="Pin_config_stm32" src="https://github.com/user-attachments/assets/b025a211-10a2-4ab1-a7f1-37f99da07ffe" />
 
 ## Display Functionality Test
 
