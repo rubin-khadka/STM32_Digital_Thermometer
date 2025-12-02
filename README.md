@@ -90,6 +90,9 @@ The schematic shows the complete STM32F103C8T6 implementation including:
 | `R2 (10kΩ)` | R1 → R2 → GND | Sets midpoint voltage at 1.65V |
 | `LM35 GND` | R1-R2 junction → LM35 GND | Shifts LM35 ground to 1.65V for negative readings |
 
+#### STM32 Pin Configuration
+<img width="652" height="647" alt="Pin_config_stm32" src="https://github.com/user-attachments/assets/afe6aaad-1ce1-4ff5-a11b-04cd4aa4fab2" />
+
 ## Quick Start
 
 ### Prerequisites
