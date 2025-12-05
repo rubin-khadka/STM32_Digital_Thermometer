@@ -136,7 +136,7 @@ The project should work with either development environment.
 ## Project Status
 **Status**: Complete  
 **Version**: v1.0  
-**Last Updated**: December 2025
+**Last Updated**: December 5, 2025
 
 ## Contact
 **Rubin Khadka Chhetri**
