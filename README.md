@@ -42,8 +42,7 @@ Demonstration of the digital thermometer:
 - Measurement accuracy within ±0.1°C tolerance 
 
 ## Project Schematic Diagram
-<img width="1118" height="593" alt="STM32 Digital_Thermometer_Schematic_complete" src="https://github.com/user-attachments/assets/b7086b7e-cc3f-4433-afcc-69bc082da428" />
-
+<img width="1223" height="656" alt="STM32_Digital_Thermometer_Schematic_complete" src="https://github.com/user-attachments/assets/4e52997d-1e72-4469-97db-91ec9aa370eb" />
 *Schematic designed using EasyEDA*
 
 The schematic shows the complete STM32F103C8T6 implementation including:
