@@ -3,18 +3,19 @@
 ## Project Overview
 A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement. 
 
-***Note***: EEPROM and memory card module implementation planned for future version.
+For a more advanced version of this project with multiple sensors, DMA, data logging capabilities, and additional features, check out: [STM32_Thermometer_DataLogger](https://github.com/rubin-khadka/STM32_Thermometer_DataLogger)
 
 ### Hardware Components
-- MCU: STM32F103C8T6 (Blue Pill)
+- MCU: STM32F103C8T6 (Blue Pill) 
+    - [STM32 Blue Pill Essential Circuits](https://github.com/rubin-khadka/STM32_Digital_Thermometer/blob/main/Docs/STM32_Bluepill_Circuit.png)
 - Temperature Sensor: LM35 (10mV/°C)
 - Display: 4-digit Common Cathode 7-Segment Display
 - Shift Registers: 2x 74HC595 (daisy-chained)
 - Communication: SPI1 for data transfer and GPIO for latch control
 
 ### System Configuration
-- System Clock: 64 MHz (HSI PLL)<br>
-    [STM32 Clock Configuration](https://github.com/rubin-khadka/STM32_Digital_Thermometer/tree/main/Media)
+- System Clock: 64 MHz (HSI PLL)
+    - [STM32 Clock Configuration](https://github.com/rubin-khadka/STM32_Digital_Thermometer/blob/main/Media/Clock_configuration.png)
 - SPI1:
     - Data Size: 16-bit mode
     - Baud Rate: 16 MBits/s
