@@ -1,4 +1,4 @@
-# STM32F103C8 Temperature Display with 74HC595 & 7-Segment Display
+# STM32F103C8 Digital Thermometer with 74HC595 and 7-Segment Display
 
 ## Project Overview
 This project implements a digital thermometer based on the **STM32F103C8T6 (Blue Pill)** microcontroller. Temperature data is acquired from an **LM35 analog temperature sensor** and displayed on a **4-digit 7-segment display**.
