@@ -1,24 +1,31 @@
 # STM32F103C8 Temperature Display with 74HC595 & 7-Segment Display
 
 ## Project Overview
-A digital thermometer using STM32F103C8T6 (Blue Pill) that reads temperature from an LM35 sensor and displays it on a 4-digit 7-segment display using two daisy-chained 74HC595 shift registers. The project features register-level ADC reading and SPI communication for optimal performance, providing real-time temperature measurement. 
+This project implements a digital thermometer based on the **STM32F103C8T6 (Blue Pill)** microcontroller. Temperature data is acquired from an **LM35 analog temperature sensor** and displayed on a **4-digit 7-segment display**.
 
-For a more advanced version of this project with multiple sensors, DMA, data logging capabilities, and additional features, check out: [STM32_Thermometer_DataLogger](https://github.com/rubin-khadka/STM32_Thermometer_DataLogger)
+The display is controlled using **two daisy-chained 74HC595 shift registers over SPI**, minimizing GPIO usage. The ADC operates in **single-conversion, software-triggered mode**, with conversion results handled via **end-of-conversion interrupts**. All peripherals are configured **directly at the register level**, with **STM32CubeMX used only for initial clock and pin configuration**.
+
+This project focuses on low-level embedded firmware design, real-time data acquisition, and efficient hardware interfacing.
+
+For a more advanced version of this project with multiple temperature sensors, Direct Memory Access (DMA), and data logging capabilities check out: 
+🔗 [STM32_Thermometer_DataLogger](https://github.com/rubin-khadka/STM32_Thermometer_DataLogger)
 
 ### Hardware Components
-- MCU: STM32F103C8T6 (Blue Pill) 
+- **MCU**: STM32F103C8T6 (Blue Pill)  
     - [STM32 Blue Pill Essential Circuits](https://github.com/rubin-khadka/STM32_Digital_Thermometer/blob/main/Docs/STM32_Bluepill_Circuit.png)
-- Temperature Sensor: LM35 (10mV/°C)
-- Display: 4-digit Common Cathode 7-Segment Display
-- Shift Registers: 2x 74HC595 (daisy-chained)
-- Communication: SPI1 for data transfer and GPIO for latch control
+- **Temperature Sensor**: LM35 (10 mV/°C)
+- **Display**: 4-digit common-cathode 7-segment display
+- **Display Driver**: 2 × 74HC595 shift registers (daisy-chained)
+- **Interface**: SPI1 (data) + GPIO (latch control)
 
 ### System Configuration
+The system is configured for deterministic timing and stable ADC sampling.
+
 - System Clock: 64 MHz (HSI PLL)
     - [STM32 Clock Configuration](https://github.com/rubin-khadka/STM32_Digital_Thermometer/blob/main/Media/Clock_configuration.png)
 - SPI1:
     - Data Size: 16-bit mode
-    - Baud Rate: 16 MBits/s
+    - Baud Rate: 16 MBits/s (derived from APB2 prescaler)
     - Mode: Master, Full-Duplex
     - Clock Polarity: Low, Phase: 1 Edge
     - First Bit: MSB
@@ -34,10 +41,12 @@ For a more advanced version of this project with multiple sensors, DMA, data log
 
 ## Video Demonstrations
 
+### Proteus Demonstration
+
 https://github.com/user-attachments/assets/aaacc959-ffa7-4ffb-9543-2609d38a994c
 
 Demonstration of the digital thermometer:
-- Starts at 1.0°C showing basic temperature display functionality
+- Starts at 1.0 °C, demonstrating basic temperature display functionality
 - Both positive and negative temperature readings
 - Voltage divider circuit for negative temperature measurement
 - Measurement accuracy within ±0.1°C tolerance 
@@ -48,7 +57,7 @@ Demonstration of the digital thermometer:
 
 The schematic shows the complete STM32F103C8T6 implementation including:
 - Core Blue Pill circuits: Power supply, 8MHz and RTC clock, reset circuit, decoupling and BOOT circuit
-- Display driver: Two daisy-chained 74HC595 shift registers controlling the 4-digit seven segment display
+- Display driver: Two daisy-chained 74HC595 shift registers controlling the 4-digit 7-segment display
 - Temperature sensing: LM35 sensor with voltage divider for negative temperature measurement
 
 ## Pinout Documentation
@@ -129,16 +138,23 @@ The project should work with either development environment.
 
 ## Resources
 - [STM32F103 Datasheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf)
-- [74HC595 Datasheet](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=sn74hc595.pdf)
-- [LM35 Datasheet](https://www.ti.com/lit/ds/symlink/lm35.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=lm35.pdf)
+- [74HC595 Shift Register Datasheet](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=sn74hc595.pdf)
+- [LM35 Temperature Sensor Datasheet](https://www.ti.com/lit/ds/symlink/lm35.pdf?spm=a2ty_o01.29997173.0.0.16bf5171zm4QVo&file=lm35.pdf)
 - [EasyEDA Website](https://easyeda.com/)
 
+## What This Project Demonstrates
+- Register-level STM32 peripheral programming without reliance on HAL drivers
+- Interrupt-driven ADC data acquisition for real-time temperature measurement
+- Efficient GPIO utilization using SPI-based shift registers
+- Hardware–software co-design, including analog signal conditioning for negative temperatures
+- Clear, structured embedded documentation aligned with production-level practices
+
 ## Project Status
-**Status**: Complete  
-**Version**: v1.0  
-**Last Updated**: December 5, 2025
+- **Status**: Complete
+- **Version**: v1.0
+- **Last Updated**: December 2025
 
 ## Contact
-**Rubin Khadka Chhetri**
-- Email: rubin.robotic@gmail.com
-- GitHub: [@rubin-khadka](https://github.com/rubin-khadka)
+**Rubin Khadka Chhetri**  
+📧 rubin.robotic@gmail.com  
+🐙 GitHub: https://github.com/rubin-khadka
