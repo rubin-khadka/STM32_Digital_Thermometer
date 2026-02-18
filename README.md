@@ -156,7 +156,6 @@ The project should work with either development environment.
 - Interrupt-driven ADC data acquisition for real-time temperature measurement
 - Efficient GPIO utilization using SPI-based shift registers
 - Hardware–software co-design, including analog signal conditioning for negative temperatures
-- Clear, structured embedded documentation aligned with production-level practices
 
 ## Project Status
 - **Status**: Complete
