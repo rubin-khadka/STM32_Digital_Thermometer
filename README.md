@@ -1,11 +1,20 @@
 # STM32F103C8 Digital Thermometer with 74HC595 and 7-Segment Display
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![STM32](https://img.shields.io/badge/STM32-F103C8T6-blue)
+![CubeMX](https://img.shields.io/badge/STM32-CubeMX-blueviolet)
+![Keil](https://img.shields.io/badge/IDE-Keil--uVision5-darkgreen)
+
 ## Project Overview
 This project implements a digital thermometer based on the **STM32F103C8T6 (Blue Pill)** microcontroller. Temperature data is acquired from an **LM35 analog temperature sensor** and displayed on a **4-digit 7-segment display**.
 
 The display is controlled using **two daisy-chained 74HC595 shift registers over SPI**, minimizing GPIO usage. The ADC operates in **single-conversion, software-triggered mode**, with conversion results handled via **end-of-conversion interrupts**. All peripherals are configured **directly at the register level**, with **STM32CubeMX used only for initial clock and pin configuration**.
 
 This project focuses on low-level embedded firmware design, real-time data acquisition, and efficient hardware interfacing.
+
+### Project Variants
+- **HAL-Based Version**: This repository - CubeMX for initial setup + register-level peripheral configuration
+- **Bare-Metal Version**: [STM32_Digital_Thermometer_BareMetal](https://github.com/rubin-khadka/STM32_Digital_Thermometer_BareMetal) - Complete register-level implementation (no CubeMX/HAL)
 
 For a more advanced version of this project with multiple temperature sensors, Direct Memory Access (DMA), and data logging capabilities check out: 
 🔗 [STM32_Thermometer_DataLogger](https://github.com/rubin-khadka/STM32_Thermometer_DataLogger)
